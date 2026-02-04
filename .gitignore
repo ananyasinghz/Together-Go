@@ -1,0 +1,38 @@
+### Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+
+### Logs
+logs/
+*.log
+*.log.*
+
+### Build output
+dist/
+build/
+.cache/
+.turbo/
+
+### Environment
+.env
+.env.*
+!.env.example
+
+### Editor / OS
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+### Python (if you later add FastAPI or scripts)
+__pycache__/
+*.py[cod]
+.venv/
+env/
+venv/
+
