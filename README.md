@@ -1,3 +1,97 @@
+## Together&GO – Vision Document
+
+### Project Name & Overview
+
+**Together&GO** is a comprehensive carpooling and event coordination platform designed specifically for students. It enables students to organize shared rides, coordinate event attendance, communicate in real-time, and manage their social activities efficiently within their campus community.
+
+### Problem it Solves
+
+Students face several challenges in their daily campus life:
+- **Transportation costs**: Individual rides (Uber, taxis) are expensive for students
+- **Event coordination**: Difficulty finding others attending the same events
+- **Communication gaps**: No centralized platform for student-to-student communication
+- **Time management**: Wasting time searching for carpool partners or event groups
+- **Safety concerns**: Need for verified, trusted connections within the student community
+
+Together&GO solves these by providing a secure, student-only platform for carpooling, event pooling, real-time messaging, and notifications.
+
+### Target Users (Personas)
+
+1. **Student Rider (Primary)**
+   - Age: 18-25
+   - Needs: Affordable transportation, event coordination, social connections
+   - Tech-savvy, uses mobile apps daily
+   - Values: Cost savings, convenience, safety
+
+2. **Student Driver**
+   - Age: 18-25
+   - Has access to a vehicle
+   - Wants to: Share costs, meet new people, help peers
+   - Values: Flexibility, earning gas money, community building
+
+3. **Admin (University Staff)**
+   - Age: 25-60
+   - Role: Manage student accounts, upload student data, monitor platform
+   - Needs: Bulk user management, password resets, system oversight
+   - Values: Security, efficiency, student safety
+
+### Vision Statement
+
+"Together&GO empowers students to build a connected, cost-effective, and sustainable campus community by making carpooling and event coordination seamless, safe, and accessible to all."
+
+### Key Features / Goals
+
+1. **Carpool Management**
+   - Create and join carpools
+   - Request/approve ride sharing
+   - Real-time location sharing (future)
+
+2. **Event Pool Coordination**
+   - Discover events
+   - Join event groups
+   - Coordinate attendance with peers
+
+3. **Real-time Communication**
+   - In-app messaging
+   - Group chats for carpools/events
+   - WebSocket-based notifications
+
+4. **User Management**
+   - Student authentication (JWT)
+   - Admin dashboard for user management
+   - Excel-based bulk student upload
+
+5. **Notifications System**
+   - Real-time alerts for carpool requests
+   - Event reminders
+   - Message notifications
+
+### Success Metrics
+
+- **User Adoption**: 500+ active students within first semester
+- **Carpool Creation**: 100+ active carpools per week
+- **Event Participation**: 80% of listed events have at least 5 participants
+- **User Engagement**: Average 3+ logins per week per active user
+- **Cost Savings**: Students save average $50/month on transportation
+- **System Performance**: 99% uptime, <2s page load times
+
+### Assumptions & Constraints
+
+**Assumptions:**
+- Students have smartphones and internet access
+- University provides student email/ID verification
+- Students are willing to share rides with verified peers
+- Campus has sufficient student population to sustain platform
+
+**Constraints:**
+- Must be student-only (verified through university email/ID)
+- Limited to single university initially (can scale later)
+- Must comply with university data privacy policies
+- Budget constraints: Free tier hosting initially
+- Development timeline: MVP in 3 months
+
+---
+
 ## Together&GO – Project Initialization
 
 This repository contains the **initialized scaffold** for the Together&GO system.  
