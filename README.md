@@ -7,15 +7,25 @@ At this stage, there is **no full feature implementation** – only the organize
 
 ### Folder Structure
 
-- **`frontend/`**: React SPA (to be implemented – CRA/Vite + Tailwind + Shadcn UI)
+- **`frontend/`**: React SPA (initialized with Vite + React + Tailwind CSS)
+  - Structure:
+    - `src/` – React components and app logic
+    - `package.json` – dependencies (React, Vite, Tailwind, React Router)
+    - `Dockerfile` – Docker configuration for frontend container
+    - `vite.config.js` – Vite configuration
+    - `tailwind.config.js` – Tailwind CSS configuration
   - Will host:
     - Student Browser UI
     - Admin Browser UI
   - Notes:
     - Will **store JWT in `localStorage`**
-    - Will **read `BACKEND_URL` from `.env`**
+    - Will **read `VITE_BACKEND_URL` from `.env`**
 
-- **`backend/`**: Node.js / Express API (initialized as backend service; endpoints to be added later)
+- **`backend/`**: Node.js / Express API (initialized with minimal server)
+  - Structure:
+    - `src/` – Express server code
+    - `package.json` – dependencies
+    - `Dockerfile` – Docker configuration for backend container
   - Will implement controllers equivalent to the system design:
     - Auth, Admin, Carpool, Event Pool, Messages, Notifications
     - Real-time communication (WebSocket or Socket.io) for messages & notifications
@@ -25,7 +35,10 @@ At this stage, there is **no full feature implementation** – only the organize
 
 - **Root files**
   - `.gitignore` – ignores node_modules, build artifacts, env files, editor configs, etc.
-  - `docker-compose.yml` – local development composition (backend, MongoDB; frontend placeholder)
+  - `docker-compose.yml` – local development composition (frontend, backend, MongoDB)
+  - `README.md` – this file
+
+**Note on Dockerfile locations**: Each service (`frontend/` and `backend/`) has its own `Dockerfile` in its respective folder. This is the **correct structure** for a multi-service monorepo. The `docker-compose.yml` references each Dockerfile using the `context` directive (e.g., `context: ./backend`), which tells Docker where to find the Dockerfile and build context for that service.
 
 ---
 
@@ -123,7 +136,7 @@ cd together-go
 
 #### 2. Create your `.env` files
 
-- Backend env file: `backend/.env`
+**Backend env file**: `backend/.env`
 
 ```bash
 MONGO_URL=mongodb://mongo:27017
@@ -131,6 +144,12 @@ DB_NAME=togethergo
 CORS_ORIGINS=http://localhost:5173
 SECRET_KEY=change-me-in-prod
 PORT=4000
+```
+
+**Frontend env file** (optional, defaults work): `frontend/.env`
+
+```bash
+VITE_BACKEND_URL=http://localhost:4000
 ```
 
 > You can later add `JWT_EXPIRES_IN`, `REDIS_URL`, etc., as needed.
@@ -145,14 +164,20 @@ docker-compose up --build
 
 This will:
 
-- Start **MongoDB** on an internal Docker network.
-- Start the **backend** Node/Express service (placeholder server).
-- Optionally start a placeholder **frontend** service (if you later add a Dockerfile and app).
+- Start **MongoDB** on an internal Docker network (port `27017`).
+- Start the **backend** Node/Express service on port `4000`.
+- Start the **frontend** React/Vite dev server on port `5173`.
 
 Once up:
 
-- Backend (placeholder) should be reachable at: `http://localhost:4000/health`
-- MongoDB will be available to the backend at `mongodb://mongo:27017/togethergo` (via `MONGO_URL`).
+- **Frontend** should be reachable at: `http://localhost:5173`
+- **Backend** should be reachable at: `http://localhost:4000/health`
+- **MongoDB** will be available to the backend at `mongodb://mongo:27017/togethergo` (via `MONGO_URL`).
+
+**Screenshots to take for your assignment:**
+- Docker Desktop showing all three containers running (`togethergo-frontend`, `togethergo-backend`, `togethergo-mongo`)
+- Browser showing `http://localhost:5173` with the React app
+- Browser showing `http://localhost:4000/health` with JSON response
 
 To stop:
 
@@ -166,15 +191,19 @@ docker-compose down
 
 **Frontend – React**
 
-- Planned stack:
-  - React SPA (CRA or Vite)
-  - Tailwind CSS
-  - Shadcn UI components
-- Running locally (once implemented):
+- Current stack (initialized):
+  - React 18 + Vite (fast dev server)
+  - Tailwind CSS (configured)
+  - React Router (for future routing)
+  - Shadcn UI components (to be added later)
+- Running locally (without Docker):
   - `cd frontend`
   - `npm install`
-  - `npm run dev` (or `npm start` if CRA)
-  - App will run on e.g. `http://localhost:5173` or `http://localhost:3000`
+  - `npm run dev`
+  - App will run on `http://localhost:5173`
+- Running with Docker:
+  - Included in `docker-compose.yml` as `frontend` service
+  - Automatically starts on port `5173` when you run `docker-compose up`
 
 **Backend – Node.js / Express**
 
