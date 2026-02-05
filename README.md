@@ -1,94 +1,58 @@
-## Together&GO – Vision Document
+# Together&GO
 
-### Project Name & Overview
+## Project Overview
+Together&GO is a web-based community coordination platform designed to help students and young individuals organize group activities and shared transportation efficiently. The platform enables users to create, discover, and join events as well as offer or participate in carpools, all through a single, centralized system. Together&GO aims to simplify coordination, reduce communication overhead, and encourage collaborative participation within a trusted community.
 
-**Together&GO** is a comprehensive carpooling and event coordination platform designed specifically for students. It enables students to organize shared rides, coordinate event attendance, communicate in real-time, and manage their social activities efficiently within their campus community.
+---
 
-### Problem it Solves
+## Problem It Solves
+Students often face challenges when coordinating events or shared travel due to fragmented communication tools, lack of centralized information, and inefficient planning methods. Informal platforms such as messaging apps do not provide structured workflows for event management or carpool matching. Together&GO addresses this problem by offering a dedicated platform that brings event planning and carpool coordination together in a structured, accessible, and user-friendly manner.
 
-Students face several challenges in their daily campus life:
-- **Transportation costs**: Individual rides (Uber, taxis) are expensive for students
-- **Event coordination**: Difficulty finding others attending the same events
-- **Communication gaps**: No centralized platform for student-to-student communication
-- **Time management**: Wasting time searching for carpool partners or event groups
-- **Safety concerns**: Need for verified, trusted connections within the student community
+---
 
-Together&GO solves these by providing a secure, student-only platform for carpooling, event pooling, real-time messaging, and notifications.
+## Target Users (Personas)
+- **College and University Students:** Individuals who regularly attend events and require shared transportation.
+- **Student Communities and Clubs:** Groups that organize activities, meetings, or social events.
+- **Young Professionals:** Users seeking convenient group travel or participation in community activities.
 
-### Target Users (Personas)
+---
 
-1. **Student Rider (Primary)**
-   - Age: 18-25
-   - Needs: Affordable transportation, event coordination, social connections
-   - Tech-savvy, uses mobile apps daily
-   - Values: Cost savings, convenience, safety
+## Vision Statement
+To create a simple, secure, and community-driven platform that enables people to participate and travel together with ease, efficiency, and confidence.
 
-2. **Student Driver**
-   - Age: 18-25
-   - Has access to a vehicle
-   - Wants to: Share costs, meet new people, help peers
-   - Values: Flexibility, earning gas money, community building
+---
 
-3. **Admin (University Staff)**
-   - Age: 25-60
-   - Role: Manage student accounts, upload student data, monitor platform
-   - Needs: Bulk user management, password resets, system oversight
-   - Values: Security, efficiency, student safety
+## Key Features / Goals
+- Secure user authentication and profile management.
+- Creation and management of events.
+- Ability to browse, join, and leave events.
+- Carpool creation and participation for shared travel.
+- Search and filter functionality for events.
+- Personalized dashboard for managing user activities.
+- Reliable data storage with controlled access.
 
-### Vision Statement
+---
 
-"Together&GO empowers students to build a connected, cost-effective, and sustainable campus community by making carpooling and event coordination seamless, safe, and accessible to all."
+## Success Metrics
+- Users can successfully register, log in, and navigate the platform.
+- Events and carpools can be created and joined without errors.
+- At least 80% of test users can use the system without external assistance.
+- The application remains stable and responsive during testing.
+- All core functionalities meet the defined requirements within the project timeline.
 
-### Key Features / Goals
+---
 
-1. **Carpool Management**
-   - Create and join carpools
-   - Request/approve ride sharing
-   - Real-time location sharing (future)
+## Assumptions & Constraints
+### Assumptions
+- Users have access to a web browser and stable internet connectivity.
+- Users are willing to create accounts and provide basic information.
+- The development team has access to required tools and learning resources.
 
-2. **Event Pool Coordination**
-   - Discover events
-   - Join event groups
-   - Coordinate attendance with peers
-
-3. **Real-time Communication**
-   - In-app messaging
-   - Group chats for carpools/events
-   - WebSocket-based notifications
-
-4. **User Management**
-   - Student authentication (JWT)
-   - Admin dashboard for user management
-   - Excel-based bulk student upload
-
-5. **Notifications System**
-   - Real-time alerts for carpool requests
-   - Event reminders
-   - Message notifications
-
-### Success Metrics
-
-- **User Adoption**: 500+ active students within first semester
-- **Carpool Creation**: 100+ active carpools per week
-- **Event Participation**: 80% of listed events have at least 5 participants
-- **User Engagement**: Average 3+ logins per week per active user
-- **Cost Savings**: Students save average $50/month on transportation
-- **System Performance**: 99% uptime, <2s page load times
-
-### Assumptions & Constraints
-
-**Assumptions:**
-- Students have smartphones and internet access
-- University provides student email/ID verification
-- Students are willing to share rides with verified peers
-- Campus has sufficient student population to sustain platform
-
-**Constraints:**
-- Must be student-only (verified through university email/ID)
-- Limited to single university initially (can scale later)
-- Must comply with university data privacy policies
-- Budget constraints: Free tier hosting initially
-- Development timeline: MVP in 3 months
+### Constraints
+- The project must be completed within an academic timeline.
+- Development is limited to student-level resources and experience.
+- Only free or open-source technologies are used.
+- User data security and privacy must be maintained throughout the system.
 
 ---
 
@@ -154,23 +118,9 @@ This project uses **GitHub Flow**:
      - `feature/frontend-shell`
      - `feature/docker-setup`
 
-3. **Typical workflow**
-   - `git checkout -b feature/project-init`
-   - Make commits in this branch.
-   - Push to GitHub:
-     - `git push origin feature/project-init`
-   - Open a **Pull Request** from `feature/project-init` → `main`.
-   - Get review, address comments, then **squash and merge**.
-
-4. **What to show in screenshots (for your assignment)**
-   - Screenshot of:
-     - GitHub repository page showing `main` branch.
-     - Branch dropdown showing at least **one feature branch** (e.g. `feature/project-init`).
-     - Optionally, a PR screen from your feature branch to `main`.
-
 ---
 
-### System Architecture – High-Level (Matching Your Diagram)
+### System Architecture – High-Level 
 
 - **Client Layer (Left)**
   - `Student Browser` – React SPA
@@ -206,8 +156,6 @@ This project uses **GitHub Flow**:
     - `CORS_ORIGINS`
     - `SECRET_KEY`
 
-This README plus the folder layout should give you everything you need to **draw your final architecture diagram** exactly as specified.
-
 ---
 
 ### Quick Start – Local Development (Docker)
@@ -228,7 +176,7 @@ git clone <your-github-repo-url> together-go
 cd together-go
 ```
 
-#### 2. Create your `.env` files
+#### 2. Create you `.env` files
 
 **Backend env file**: `backend/.env`
 
@@ -281,7 +229,7 @@ docker-compose down
 
 ---
 
-### Local Development Tools (Documented for Your Assignment)
+### Local Development Tools 
 
 **Frontend – React**
 
@@ -353,34 +301,5 @@ docker-compose down
 
 ---
 
-### Git & GitHub – Commands You Should Use
 
-After this scaffold is in place in your local folder:
-
-```bash
-git init
-git add .
-git commit -m "chore: initialize Together&GO scaffold"
-
-git branch -M main
-git remote add origin <your-github-repo-url>
-git push -u origin main
-```
-
-Then create a **feature branch** to show in your screenshots:
-
-```bash
-git checkout -b feature/project-init
-# (Optionally make a tiny change, e.g. update README)
-git commit -am "docs: adjust README"
-git push -u origin feature/project-init
-```
-
-Now you can:
-
-- Take screenshots of:
-  - GitHub repo showing `main` and `feature/project-init` branches.
-  - PR from `feature/project-init` into `main` (optional, but recommended).
-
-This completes the **project initialization** requirements without building the full application.
 
