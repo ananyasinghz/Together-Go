@@ -643,6 +643,25 @@ async def startup_db():
         await db.users.insert_one(admin_doc)
         logger.info("Admin user created")
 
+    # Seed student if not exists (same default-password rule as Excel upload)
+    seed_reg = "23bce1380"
+    if not await db.users.find_one({"registration_no": seed_reg}):
+        seed_name = "Ananya Singh"
+        first_name = seed_name.split()[0].lower()
+        last_4 = seed_reg[-4:]
+        default_password = f"{first_name}{last_4}"
+        await db.users.insert_one(
+            {
+                "registration_no": seed_reg,
+                "name": seed_name,
+                "password_hash": hash_password(default_password),
+                "is_admin": False,
+                "first_login": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+            }
+        )
+        logger.info("Seed student %s created", seed_reg)
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()

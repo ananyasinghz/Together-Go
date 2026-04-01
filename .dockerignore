@@ -1,0 +1,14 @@
+.git
+.github
+**/.venv
+**/node_modules
+**/__pycache__
+.pytest_cache
+.mutmut-cache
+htmlcov
+.coverage
+frontend/build
+*.md
+.env
+backend/.env
+frontend/.env

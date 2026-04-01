@@ -60,6 +60,7 @@ venv/
 .venv/
 
 # Development tools
+SCREENSHOTS_CHECKLIST.md
 chainlit.md
 .chainlit
 .ipynb_checkpoints/

@@ -178,7 +178,7 @@ export default function Login({ onLogin }) {
                   id="registration-no"
                   data-testid="registration-no-input"
                   type="text"
-                  placeholder="e.g., 23bps1125"
+                  placeholder="e.g., 23bce1380"
                   value={registrationNo}
                   onChange={(e) => setRegistrationNo(e.target.value)}
                   required
