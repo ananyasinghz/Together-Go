@@ -191,8 +191,8 @@ python -m pytest tests/ -v
 
 ### 5.c.2 Version management and CI
 
-- **Version control:** Git; dependency versions pinned in [`backend/requirements.txt`](backend/requirements.txt) and [`frontend/package.json`](frontend/package.json).
-- **CI:** GitHub Actions runs backend pytest (with MongoDB service) and `yarn build` for the frontend on push/PR to `main` or `master`.
+- **Version control:** Git; dependency versions pinned in [`backend/requirements.txt`](backend/requirements.txt) and [`frontend/package.json`](frontend/package.json). Example release tag: `v1.0.0` (`git tag -a v1.0.0 -m "release"` then push tags to GitHub for the Releases page screenshot).
+- **CI:** GitHub Actions ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs backend pytest (with MongoDB service) and `yarn build` for the frontend on push/PR to `main` or `master`.
 
 ### 5.d Appendix e — Code listing / GitHub link
 
