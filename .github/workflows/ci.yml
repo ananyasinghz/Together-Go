@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+      - name: Pytest (integration)
+        env:
+          MONGO_URL: mongodb://127.0.0.1:27017
+          DB_NAME: together_go_test
+        run: python -m pytest tests/ -v --tb=short
+      - name: Pytest coverage (auth modules)
+        env:
+          MONGO_URL: mongodb://127.0.0.1:27017
+          DB_NAME: together_go_test
+        run: python -m pytest tests/ -q --cov=server --cov=auth_utils --cov-report=term-missing
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
+      - name: Install and build
+        working-directory: frontend
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
